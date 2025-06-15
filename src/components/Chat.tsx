@@ -7,7 +7,7 @@ import {
 } from "lucide-react"
 
 import Groq from "groq-sdk";
-import ReactMarkdown from "react-markdown";
+import Markdown from "react-markdown";
 
 interface IMessage {
     type: string,
@@ -41,7 +41,7 @@ const Chat: React.FC = () => {
         const newMessage: IMessage = { type: "user", message: value };
         const updatedMessages = [...message, newMessage];
         setMessage(updatedMessages);
-        
+
         setValue("");
 
         try {
@@ -130,10 +130,14 @@ never ever try to justify like "I'm a machine learning model, trained on a vast 
                                         :
                                         <div key={index} className="flex m-2">
                                             <Bot className=" bg-brandColour rounded-b-full rounded-t-full text-white m-2" />
-                                            <ReactMarkdown className=" bg-neutral-300 text-left max-w-64 p-4 rounded" children={item.message}>
 
-                                            {/* <p className=" bg-neutral-300 text-left max-w-64 p-4 rounded">{item.message}</p> */}
-                                            </ReactMarkdown>
+
+                                            <p className=" bg-neutral-300 text-left max-w-64 p-4 rounded">
+                                                <Markdown>
+                                                    {item.message}
+                                                </Markdown>
+                                            </p>
+
                                         </div>
                                 ))
                                 }
