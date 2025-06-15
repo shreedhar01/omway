@@ -7,9 +7,7 @@ import {
 } from "lucide-react"
 
 import Groq from "groq-sdk";
-
-
-import.meta.env.VITE_GROQ_KEY
+import ReactMarkdown from "react-markdown";
 
 interface IMessage {
     type: string,
@@ -81,7 +79,11 @@ Make a Call
 
 Send a Mail
 info@omwaytech.com
+
+website for book demo
+omwaytechnologies.com/contact-us
 if some one want to develop or have more query. You can say please fill the form of demo request 
+never ever try to justify like "I'm a machine learning model, trained on a vast amount of text data....." if youser type something random just try to diver to *Omway Technologies* topics
 `
                     },
                     ...updatedMessages.map(item => ({
@@ -128,7 +130,10 @@ if some one want to develop or have more query. You can say please fill the form
                                         :
                                         <div key={index} className="flex m-2">
                                             <Bot className=" bg-brandColour rounded-b-full rounded-t-full text-white m-2" />
-                                            <p className=" bg-neutral-300 text-left max-w-64 p-4 rounded">{item.message}</p>
+                                            <ReactMarkdown className=" bg-neutral-300 text-left max-w-64 p-4 rounded" children={item.message}>
+
+                                            {/* <p className=" bg-neutral-300 text-left max-w-64 p-4 rounded">{item.message}</p> */}
+                                            </ReactMarkdown>
                                         </div>
                                 ))
                                 }
