@@ -89,7 +89,7 @@ if some one want to develop or have more query. You can say please fill the form
                         content: item.message
                     }))
                 ],
-                model: "llama3-8b-8192",
+                model: "meta-llama/llama-4-scout-17b-16e-instruct",
             });
 
             const botResponse = await chatCompletion.choices[0]?.message?.content || "Sorry, I couldn't process that.";
